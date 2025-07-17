@@ -9,7 +9,7 @@ config.specs = ['./test/**/android.spec.ts'];
 
 // ============
 // Capabilities
-// ============
+// ============  
 //
 config.maxInstances = 1;
 // For all capabilities please check
@@ -21,9 +21,9 @@ config.capabilities = [
     // For W3C the appium capabilities need to have an extension prefix
     // http://appium.io/docs/en/writing-running-appium/caps/
     // This is `appium:` for all Appium Capabilities which can be found here
-    // 'appium:deviceName': 'Pixel_3_10.0',
-    'appium:deviceName': 'Nexus_S_Small_Screen_10.0',
-    'appium:platformVersion': '10.0',
+    'appium:deviceName': 'Android Emulator',
+    //'appium:deviceName': 'Nexus_S_Small_Screen_10.0',
+    'appium:platformVersion': '16.0',
     'appium:orientation': 'PORTRAIT',
     'appium:automationName': 'UiAutomator2',
     // The path to the app

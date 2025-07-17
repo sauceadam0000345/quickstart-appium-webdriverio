@@ -21,7 +21,9 @@ The Native demo app that has been used for all these tests can be found [here](a
 Clone this repo onto your local machine. You will need to run `npm install` from the root folder. 
 
 ### Upload apps to Sauce Storage
-Navigate to https://app.saucelabs.com/live/app-testing and upload the correct app file (from above) according to the environment you want to test in. You can find the apps for uploading in this project inside of the `/apps` directory
+
+
+Navigate to https://app.saucelabs.com/app-management and and upload the correct app file (from above) according to the environment you want to test in. You can find the apps for uploading in this project inside of the `/apps` directory.
 
 ## Run Native App tests on Sauce Labs Android emulators in the Sauce Labs Platform
 If you want to run the Native Android App tests on Sauce Labs emulators then you can run the Android tests with
