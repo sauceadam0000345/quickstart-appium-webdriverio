@@ -71,3 +71,5 @@ If you want to run the Native iOS App tests on Sauce Labs real devices then you 
 The tests will be executed on an iPhone (11|12|13|X.*).*, which means every available iPhone that matches this regular 
 expression.
 
+
+appium --allow-insecure session-override,session_discovery

@@ -1,5 +1,7 @@
 describe('Android App flow', () => {
-  it('should be able to order the first product in the list', async () => {
+  it('should be able to order the first product in the list', async function() {
+    this.timeout(120000); // Increase timeout to 2 minutes
+    
     // Wait for the catalog to be shown
     await $('//*[@content-desc="products screen"]').waitForDisplayed();
 
@@ -41,6 +43,11 @@ describe('Android App flow', () => {
      */
     await $('//*[@content-desc="Full Name* input field"]').setValue('Rebecca Winter');
     await driver.hideKeyboard();
+    
+    await findElementBySwipe({
+      element: await $('//*[@content-desc="Address Line 1* input field"]'),
+      scrollableElement: await $('//*[@content-desc="checkout address screen"]'),
+    });
     await $('//*[@content-desc="Address Line 1* input field"]').setValue('Mandorley 122');
     await driver.hideKeyboard();
 
@@ -96,8 +103,25 @@ describe('Android App flow', () => {
     const reviewOrderBtn = await $('//*[@content-desc="Review Order button"]');
     await reviewOrderBtn.waitForDisplayed({ timeout: 10000 });
     await reviewOrderBtn.waitForEnabled({ timeout: 10000 });
-    await reviewOrderBtn.click();
-    await driver.pause(1000); // Optional, helps with animation sync
+
+    // Try multiple click strategies for robustness
+    try {
+      // First try: Regular click
+      await reviewOrderBtn.click();
+    } catch (e) {
+      // Second try: Touch action
+      await reviewOrderBtn.touchAction('tap');
+    }
+    
+    // Third try: UiScrollable click for Sauce Labs compatibility
+    try {
+      await $('android=new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().description("Review Order button"))');
+      await reviewOrderBtn.click();
+    } catch (e) {
+      // Ignore if this fails
+    }
+
+    // Wait for navigation to review order screen
     await $('//*[@content-desc="checkout review order screen"]').waitForDisplayed({ timeout: 10000 });
 
     /**

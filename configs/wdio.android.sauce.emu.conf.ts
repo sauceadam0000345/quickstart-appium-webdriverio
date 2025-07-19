@@ -30,7 +30,8 @@ config.capabilities = [
     'appium:appWaitActivity': 'com.saucelabs.mydemoapp.rn.MainActivity',
     // Read the reset strategies very well, they differ per platform, see
     // http://appium.io/docs/en/writing-running-appium/other/reset-strategies/
-    'appium:noReset': true,
+    'appium:noReset': false,
+    'appium:fullReset': true,
     'appium:newCommandTimeout': 240,
   },
 ];
