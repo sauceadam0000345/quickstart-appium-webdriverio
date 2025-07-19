@@ -14,8 +14,4 @@ npm-debug.log
 # custom
 *.log
 .tmp
-.env
-run-appium.sh
-wdio.conf.js
-AdamsREADME.md
-*.png
+
