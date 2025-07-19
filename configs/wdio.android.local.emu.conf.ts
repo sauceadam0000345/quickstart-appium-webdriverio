@@ -5,7 +5,7 @@ import config from './wdio.shared.local.appium.conf';
 // Specify Test Files
 // ==================
 //
-config.specs = ['./test/**/android.spec.ts'];
+config.specs = [join(__dirname, '../test/android.spec.ts')];
 
 // ============
 // Capabilities
